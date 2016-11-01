@@ -9,6 +9,9 @@ export TERM=xterm-256color
 # Essential
 source ~/.zplug/init.zsh
 
+# Shared env variables between ZSH and BASH
+source ~/.cprofile
+
 # Make sure to use double quotes to prevent shell expansion
 # Look at these later?
 # zplug "b4b4r07/enhancd", use:init.sh i use fasd for now
