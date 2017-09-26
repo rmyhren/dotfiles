@@ -85,14 +85,20 @@ fi
 
 export LANG=en_US.UTF-8
 export MAVEN_OPTS="-Xmx3072m -XX:MaxPermSize=512m"
-export GOPATH=$HOME/go
-export GOROOT=$(go env GOROOT)
+if (( $+commands[go] )) ; then
+	# it exists
+	export GOPATH=$HOME/go
+	export GOROOT=$(go env GOROOT)
+	export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+fi
 
 export PATH=$HOME/bin:$PATH;
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 export PS4='(${BASH_SOURCE}:${LINENO}): - [${SHLVL},${BASH_SUBSHELL},$?] $ '
-
-#source <(oc completion zsh)
+if (( $+commands[oc] )) ; then
+	# it exists
+#	source <(oc completion zsh)
+fi
 export PATH="/usr/local/sbin:$PATH"
 alias gpg=gpg1

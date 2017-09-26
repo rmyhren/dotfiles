@@ -1,2 +1,4 @@
-ITOPDOCKERRUN=~/web/itop-docker-run
-ITOPDOCKERCON=robban/dev 
+export ITOPSYNC=~/docker-run/itop-sync
+export ITOPSYNCCON=ske_indr/itop-sync
+export ITOPDOCKERRUN=~/docker-run/itop
+export ITOPDOCKERCON=uil0map-paas-app01.skead.no:5000/ske_indr/itop
