@@ -117,4 +117,8 @@ fi
 #complete -D -o default
 # Shared env variables between ZSH and BASH
 source ~/.cprofile
-#/usr/bin/zsh
+/usr/bin/zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/m92295/.sdkman"
+[[ -s "/home/m92295/.sdkman/bin/sdkman-init.sh" ]] && source "/home/m92295/.sdkman/bin/sdkman-init.sh"

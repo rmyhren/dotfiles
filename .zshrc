@@ -93,6 +93,18 @@ if (( $+commands[go] )) ; then
 	export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 fi
 
+## Function for docker 
+function dc_trace_cmd() {
+  local parent=`docker inspect -f '{{ .Parent }}' $1` 2>/dev/null
+  declare -i level=$2
+  echo ${level}: `docker inspect -f '{{ .ContainerConfig.Cmd }}' $1 2>/dev/null`
+  level=level+1
+  if [ "${parent}" != "" ]; then
+    echo ${level}: $parent 
+    dc_trace_cmd $parent $level
+  fi
+}
+
 export PATH=$HOME/bin:$PATH;
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
@@ -103,3 +115,7 @@ if (( $+commands[oc] )) ; then
 fi
 export PATH="/usr/local/sbin:$PATH"
 alias gpg=gpg1
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/m92295/.sdkman"
+[[ -s "/home/m92295/.sdkman/bin/sdkman-init.sh" ]] && source "/home/m92295/.sdkman/bin/sdkman-init.sh"
