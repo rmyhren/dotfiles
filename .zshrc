@@ -27,7 +27,7 @@ zplug "junegunn/fzf", use:shell/key-bindings.zsh
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "joshuarubin/zsh-homebrew", if:"[[ $OSTYPE == *darwin* ]]"
 
-source $HOME/.config/sourcecodepro.sh
+#source $HOME/.config/sourcecodepro.sh
 
 openshift_cluster(){
   	local cluster=ose2
@@ -59,7 +59,6 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 # zplug "zsh-users/zaw" looks like a cool idea
 
 
-alias j='fasd_cd -d'
 # Add a bunch more of your favorite packages!
 
 # Install packages that have not been installed yet
